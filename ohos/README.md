@@ -40,10 +40,19 @@ done
 
 [producer 40902885173/1](https://github.com/qsxs/cpf-port-tooling/actions/runs/40902885173/attempts/1) 使用 source commit `a29ad241d272630768a2d44c05964ee241c62e09`，在 `Metadata` 的 core 阶段退出 1：`commonizeNativeDistribution` 的 `kotlinKlibCommonizerClasspath` 未解析到 `org.jetbrains.kotlin:kotlin-klib-commonizer-embeddable:2.4.20-0.1.0-08`，日志显示只搜索了 Maven Central。该固定版本的 CPF develop POM 已只读核对存在；旧 CPF 仓 content 过滤未包含此宿主工具坐标。
 
-本次在两个 CPF 仓增加锁定工具清单中九个此前缺失的 Kotlin `.08` 宿主工具精确版本路由；同版 stdlib、tooling-core 和 build-tools-api 原已由业务 pins 路由，公共旧版 host 传递依赖继续使用 Maven Central。路由过滤不强制选择依赖版本，也不改变业务 pins。本修改尚未通过完整云端 producer 验证，不预报后续构建、发布或运行结果。
+本次在两个 CPF 仓增加锁定工具清单中九个此前缺失的 Kotlin `.08` 宿主工具精确版本路由；同版 stdlib、tooling-core 和 build-tools-api 原已由业务 pins 路由，公共旧版 host 传递依赖继续使用 Maven Central。路由过滤不强制选择依赖版本，也不改变业务 pins。该路由修复在第三轮 producer 的完整构建与发布校验中通过；设备运行仍未验证。
 
 ## 第二轮云端 producer 失败记录
 
 [producer 40906194563/1](https://github.com/qsxs/cpf-port-tooling/actions/runs/40906194563/attempts/1) 使用 source commit `c43f6ec33c3c562691993b0c1e34834643a6fa58`，已经过 core 的 `commonizeNativeDistribution`，随后在 `compileCommonMainKotlinMetadata` 退出 1：`kotlinCompilerPluginClasspathMetadataCommonMain` 不能解析 `org.jetbrains.kotlin:kotlin-compose-compiler-plugin-embeddable:2.4.20-0.1.0-08`；日志显示只搜索了 Maven Central，CPF 仓过滤未包含该插件。该固定版本的 CPF develop POM 已只读核对存在，摘要与固定工具提交中的 `compiler-plugin-toolchain.json` 一致。
 
-本次仅将该 Compose 编译插件加入两个 CPF 仓既有的宿主工具精确 `.08` 版本过滤，不修改原有九项、业务 pins 或 SDK。该插件清单位于固定工具提交 `d0cff88fd1ea2e4f08bb4409f1c802cca0c7f285`；它不在当前 20 项 tooling-lock 文件清单中。本修改尚未经过新的云端 producer 验证，不预报后续构建、发布或运行结果。
+本次仅将该 Compose 编译插件加入两个 CPF 仓既有的宿主工具精确 `.08` 版本过滤，不修改原有九项、业务 pins 或 SDK。该插件清单位于固定工具提交 `d0cff88fd1ea2e4f08bb4409f1c802cca0c7f285`；它不在当前 20 项 tooling-lock 文件清单中。该插件路由修复在第三轮 producer 的完整构建与发布校验中通过；设备运行仍未验证。
+
+
+## Material Icons 1.7.3 鸿蒙迁仓预览
+
+- 上游 Fork：`qsxs/compose-multiplatform-core`，源码提交 `17eb10c7c46658be710f1bdc543aa9f85c96563e`；对应 Maven 官方 source JAR 和 Git tag 是分别固定的来源，生成图标与 tag 的逐项一致性尚未证明。
+- 公开 Maven 根：`https://qsxs.github.io/cpf-maven/`；两个模块 group 为 `io.github.qsxs.cpf.materialicons`，同版 `1.7.3-cpf11-preview-17eb10c7c466-40908810417-1`。extended 的公开 API 依赖同版 core。
+- [producer 40908810417/1](https://github.com/qsxs/cpf-port-tooling/actions/runs/40908810417/attempts/1) 使用 Gradle 9.5.0、JDK 17 和 Kotlin `2.4.20-0.1.0-08`，metadata、OHOS x64/arm64、Publish 和 Verify 均通过；完整源码 281/11105 与五组大小写映射已核。
+- [Pages 提交 8eeacfbd8956](https://github.com/qsxs/cpf-maven/commit/8eeacfbd8956e372deae09ca4f3e75280e92b567) 的 280 个文件来自已核 staging；公开六份 GMM 和两份根 sources JAR 与 staging 匿名校验一致。extended sources 在整包下载中断后以 47 个区间、129 次请求组装并确认 SHA-256。
+- [consumer 40915070575/1](https://github.com/qsxs/cpf-port-tooling/actions/runs/40915070575/attempts/1) 以 extended 根坐标传递解析同版 core，实际完成 metadata、OHOS x64 与 arm64 编译；14 次匿名元数据请求和选中制品摘要与 staging 匹配。证据不含 runner 输出二进制，不能独立重哈；link、runtime、物理 ARM 及 Android/iOS 回归未验证，主工程引用尚未切换。
