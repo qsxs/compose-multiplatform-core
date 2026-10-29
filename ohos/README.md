@@ -35,3 +35,9 @@ done
 ```
 
 每个编译阶段默认按 core、extended 顺序串行，也可用 `--module Core` / `--module Extended` 分别调用，后续阶段须满足既定顺序。Tasks 保存真实任务清单，Resolve 和编译阶段留存解析、实际编译源集合、原字节、任务输出和目标架构证据。Publish 仅向显式 staging 写入，Verify 核对根及两 ABI 的 GMM、POM、依赖边、artifact 摘要、源码 JAR、许可、来源及 KLIB 目标/非空内容。脚本与静态 Plan 本身均不代表编译、发布、独立 consumer、链接或设备运行成功；这些结果须由云端实际执行和证据分别确认。
+
+## 首轮云端 producer 失败记录
+
+[producer 40902885173/1](https://github.com/qsxs/cpf-port-tooling/actions/runs/40902885173/attempts/1) 使用 source commit `a29ad241d272630768a2d44c05964ee241c62e09`，在 `Metadata` 的 core 阶段退出 1：`commonizeNativeDistribution` 的 `kotlinKlibCommonizerClasspath` 未解析到 `org.jetbrains.kotlin:kotlin-klib-commonizer-embeddable:2.4.20-0.1.0-08`，日志显示只搜索了 Maven Central。该固定版本的 CPF develop POM 已只读核对存在；旧 CPF 仓 content 过滤未包含此宿主工具坐标。
+
+本次在两个 CPF 仓增加锁定工具清单中九个此前缺失的 Kotlin `.08` 宿主工具精确版本路由；同版 stdlib、tooling-core 和 build-tools-api 原已由业务 pins 路由，公共旧版 host 传递依赖继续使用 Maven Central。路由过滤不强制选择依赖版本，也不改变业务 pins。本修改尚未经过新的云端 producer 验证，不预报后续构建、发布或运行结果。

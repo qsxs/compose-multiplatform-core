@@ -14,6 +14,21 @@ pluginManagement {
 }
 val pins = JsonSlurper().parse(file("dependency-pins.json")) as Map<*, *>
 val metadataPins = JsonSlurper().parse(file("metadata-pins.json")) as Map<*, *>
+
+// 宿主工具坐标来自锁定的 commonizer、metadata 和 Native compiler 工具清单。
+val hostToolModules = listOf(
+    "kotlin-klib-commonizer-embeddable",
+    "kotlin-compiler-embeddable",
+    "kotlin-script-runtime",
+    "kotlin-daemon-embeddable",
+    "kotlin-build-tools-compat",
+    "kotlin-build-tools-cri-impl",
+    "kotlin-build-tools-impl",
+    "kotlin-compiler-runner",
+    "kotlin-daemon-client",
+)
+val hostToolVersion = "2.4.20-0.1.0-08"
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -22,16 +37,22 @@ dependencyResolutionManagement {
             if (parts[0].startsWith("androidx.")) includeVersion(parts[0], parts[1], version.toString())
         } } }
         maven("https://maven.eazytec-cloud.com/nexus/repository/maven-develop/") {
-            content { (pins.entries + metadataPins.entries).forEach { (ga, version) ->
-                val parts = ga.toString().split(":")
-                includeVersion(parts[0], parts[1], version.toString())
-            } }
+            content {
+                (pins.entries + metadataPins.entries).forEach { (ga, version) ->
+                    val parts = ga.toString().split(":")
+                    includeVersion(parts[0], parts[1], version.toString())
+                }
+                hostToolModules.forEach { includeVersion("org.jetbrains.kotlin", it, hostToolVersion) }
+            }
         }
         maven("https://maven.eazytec-cloud.com/nexus/repository/maven-public/") {
-            content { (pins.entries + metadataPins.entries).forEach { (ga, version) ->
-                val parts = ga.toString().split(":")
-                includeVersion(parts[0], parts[1], version.toString())
-            } }
+            content {
+                (pins.entries + metadataPins.entries).forEach { (ga, version) ->
+                    val parts = ga.toString().split(":")
+                    includeVersion(parts[0], parts[1], version.toString())
+                }
+                hostToolModules.forEach { includeVersion("org.jetbrains.kotlin", it, hostToolVersion) }
+            }
         }
         mavenCentral()
     }
