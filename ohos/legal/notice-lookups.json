@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "archives": {
+    "material-icons-core": {
+      "archiveSha256": "b3f1be7fda4d13a6d938bb918275ddc143e9d6a2007727f284778480526f5f16",
+      "inspection": "ALL_ZIP_MEMBER_NAMES",
+      "noticeMembers": [],
+      "licenseMembers": []
+    },
+    "material-icons-extended": {
+      "archiveSha256": "4e23237644f7da35c391cc4c0263b95248605f499ab46f6d2c92d4fe48793d5a",
+      "inspection": "ALL_ZIP_MEMBER_NAMES",
+      "noticeMembers": [],
+      "licenseMembers": []
+    }
+  },
+  "separateNotice": "No NOTICE member in either exact source archive; no independent upstream NOTICE obtained or invented",
+  "license": {
+    "path": "legal/LICENSE",
+    "size": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  }
+}

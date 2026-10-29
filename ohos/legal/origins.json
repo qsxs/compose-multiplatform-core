@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "upstreamVersion": "1.7.3",
+  "scm": "https://github.com/JetBrains/compose-jb",
+  "archives": [
+    {
+      "module": "material-icons-core",
+      "kind": "sources",
+      "url": "https://repo.maven.apache.org/maven2/org/jetbrains/compose/material/material-icons-core/1.7.3/material-icons-core-1.7.3-sources.jar",
+      "path": "vendor/material-icons-core/material-icons-core-1.7.3-sources.jar",
+      "size": 284048,
+      "sha256": "b3f1be7fda4d13a6d938bb918275ddc143e9d6a2007727f284778480526f5f16",
+      "method": "OFFICIAL_FIXED_URL",
+      "httpStatus": 200
+    },
+    {
+      "module": "material-icons-core",
+      "kind": "pom",
+      "url": "https://repo.maven.apache.org/maven2/org/jetbrains/compose/material/material-icons-core/1.7.3/material-icons-core-1.7.3.pom",
+      "path": "vendor/material-icons-core/material-icons-core-1.7.3.pom",
+      "size": 2996,
+      "sha256": "c03be24a41650d1dd837ffad000ecc7fccbecb6100a0e8f480398470c42a846a",
+      "method": "READ_ONLY_GRADLE_CACHE",
+      "cachePath": "harmony-build/.local/gradle-user-home/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-icons-core/1.7.3/959a4a6f3d7af47ec5933a46cd77cdd9844a0b72/material-icons-core-1.7.3.pom"
+    },
+    {
+      "module": "material-icons-core",
+      "kind": "gmm",
+      "url": "https://repo.maven.apache.org/maven2/org/jetbrains/compose/material/material-icons-core/1.7.3/material-icons-core-1.7.3.module",
+      "path": "vendor/material-icons-core/material-icons-core-1.7.3.module",
+      "size": 21544,
+      "sha256": "6f330e6d0a62a292135a30c1c53ea5196ad7aeb048679af61e4fc92a662e9076",
+      "method": "READ_ONLY_GRADLE_CACHE",
+      "cachePath": "harmony-build/.local/gradle-user-home/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-icons-core/1.7.3/6f3b9a62b247ca6de5b55b9c97fd36fa94d5fa91/material-icons-core-1.7.3.module"
+    },
+    {
+      "module": "material-icons-extended",
+      "kind": "sources",
+      "url": "https://repo.maven.apache.org/maven2/org/jetbrains/compose/material/material-icons-extended/1.7.3/material-icons-extended-1.7.3-sources.jar",
+      "path": "vendor/material-icons-extended/material-icons-extended-1.7.3-sources.jar",
+      "size": 12085967,
+      "sha256": "4e23237644f7da35c391cc4c0263b95248605f499ab46f6d2c92d4fe48793d5a",
+      "method": "OFFICIAL_FIXED_URL",
+      "httpStatus": 200
+    },
+    {
+      "module": "material-icons-extended",
+      "kind": "pom",
+      "url": "https://repo.maven.apache.org/maven2/org/jetbrains/compose/material/material-icons-extended/1.7.3/material-icons-extended-1.7.3.pom",
+      "path": "vendor/material-icons-extended/material-icons-extended-1.7.3.pom",
+      "size": 2847,
+      "sha256": "dcdca2272eedeaf9406663b9b38ccc97c7179e85aa1ca78932ec6122e559958c",
+      "method": "READ_ONLY_GRADLE_CACHE",
+      "cachePath": "harmony-build/.local/gradle-user-home/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-icons-extended/1.7.3/19e2180a2f18b2ad8efe74f7720e2b58edd36ab1/material-icons-extended-1.7.3.pom"
+    },
+    {
+      "module": "material-icons-extended",
+      "kind": "gmm",
+      "url": "https://repo.maven.apache.org/maven2/org/jetbrains/compose/material/material-icons-extended/1.7.3/material-icons-extended-1.7.3.module",
+      "path": "vendor/material-icons-extended/material-icons-extended-1.7.3.module",
+      "size": 21451,
+      "sha256": "b1fa9ad76bde01d9869f9bb0c7129cd2b072794f237e04d15e3ef7c8a66a4872",
+      "method": "READ_ONLY_GRADLE_CACHE",
+      "cachePath": "harmony-build/.local/gradle-user-home/caches/modules-2/files-2.1/org.jetbrains.compose.material/material-icons-extended/1.7.3/92e9cdc2497daae069c71fdf8eae759c3c862400/material-icons-extended-1.7.3.module"
+    }
+  ],
+  "license": {
+    "url": "https://www.apache.org/licenses/LICENSE-2.0.txt",
+    "path": "legal/LICENSE",
+    "size": 11358,
+    "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  },
+  "apiScope": "Complete core and extended generated common Kotlin sources; no API/source edits; OHOS only dependency adaptation to frozen CPF UI/Kotlin",
+  "pomBoundary": "Android runtime bridges recorded in original POMs are not OHOS dependencies"
+}

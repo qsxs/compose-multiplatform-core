@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "policy": "COMPLETE_OFFICIAL_COMMONMAIN_SOURCES_ORIGINAL_BYTES_NO_PATCHES",
+  "sourceSetDigest": "SHA256 of UTF-8 compact JSON sorted keys; records sorted by member; fields member,size,sha256 for all Kotlin entries",
+  "modules": {
+    "material-icons-core": {
+      "kotlinSourceCount": 281,
+      "compilePrefix": "commonMain/",
+      "compileSuffix": ".kt",
+      "sources": {
+        "path": "vendor/material-icons-core/material-icons-core-1.7.3-sources.jar",
+        "size": 284048,
+        "sha256": "b3f1be7fda4d13a6d938bb918275ddc143e9d6a2007727f284778480526f5f16"
+      },
+      "pom": {
+        "path": "vendor/material-icons-core/material-icons-core-1.7.3.pom",
+        "size": 2996,
+        "sha256": "c03be24a41650d1dd837ffad000ecc7fccbecb6100a0e8f480398470c42a846a"
+      },
+      "gmm": {
+        "path": "vendor/material-icons-core/material-icons-core-1.7.3.module",
+        "size": 21544,
+        "sha256": "6f330e6d0a62a292135a30c1c53ea5196ad7aeb048679af61e4fc92a662e9076"
+      },
+      "sourceSetSha256": "8a4755af41813e67ea22571afc9cf69e000dfb1dd03b3e1648675e733ce20b2a",
+      "sampleMembers": [
+        {
+          "member": "commonMain/androidx/compose/material/icons/Icons.kt",
+          "size": 11097,
+          "sha256": "14b1a6e6d508fc2c50c0ca241d0fe25a559f5143a3364760e48c0ef8a068a2e5"
+        },
+        {
+          "member": "commonMain/androidx/compose/material/icons/automirrored/outlined/KeyboardArrowLeft.kt",
+          "size": 1650,
+          "sha256": "c32776f8053aeaa4f4de28872ca1abbc8c458fa450d5f9b6eb1254ec25f0f5dc"
+        },
+        {
+          "member": "commonMain/androidx/compose/material/icons/automirrored/outlined/KeyboardArrowRight.kt",
+          "size": 1648,
+          "sha256": "a44f236c6cd97837a00e788ac82961a204a8cd403ad89d15a00c8c1d5ead035c"
+        }
+      ],
+      "upstreamCommonDependencies": [
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "1.7.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-graphics",
+          "version": {
+            "requires": "1.7.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-unit",
+          "version": {
+            "requires": "1.7.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-common",
+          "version": {
+            "requires": "1.9.24"
+          }
+        }
+      ]
+    },
+    "material-icons-extended": {
+      "kotlinSourceCount": 11105,
+      "compilePrefix": "commonMain/",
+      "compileSuffix": ".kt",
+      "sources": {
+        "path": "vendor/material-icons-extended/material-icons-extended-1.7.3-sources.jar",
+        "size": 12085967,
+        "sha256": "4e23237644f7da35c391cc4c0263b95248605f499ab46f6d2c92d4fe48793d5a"
+      },
+      "pom": {
+        "path": "vendor/material-icons-extended/material-icons-extended-1.7.3.pom",
+        "size": 2847,
+        "sha256": "dcdca2272eedeaf9406663b9b38ccc97c7179e85aa1ca78932ec6122e559958c"
+      },
+      "gmm": {
+        "path": "vendor/material-icons-extended/material-icons-extended-1.7.3.module",
+        "size": 21451,
+        "sha256": "b1fa9ad76bde01d9869f9bb0c7129cd2b072794f237e04d15e3ef7c8a66a4872"
+      },
+      "sourceSetSha256": "78ff1bcd5e8e0a0e466a951771b4c7ed232990e4067fa4fb7a4e2290f2f4d78a",
+      "sampleMembers": [
+        {
+          "member": "commonMain/androidx/compose/material/icons/filled/CalendarMonth.kt",
+          "size": 3693,
+          "sha256": "793de01d126f37e1d3289cdc23c0bf29753546546f36286cc9bdbb99e1cc8b7a"
+        },
+        {
+          "member": "commonMain/androidx/compose/material/icons/outlined/AccountBalanceWallet.kt",
+          "size": 3089,
+          "sha256": "e3e577ad9531c94e2a0909fb63e9afcc0311eedb770f2fc2bb7271e7f4e65153"
+        }
+      ],
+      "upstreamCommonDependencies": [
+        {
+          "group": "org.jetbrains.compose.material",
+          "module": "material-icons-core",
+          "version": {
+            "requires": "1.7.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui",
+          "version": {
+            "requires": "1.7.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.compose.ui",
+          "module": "ui-graphics",
+          "version": {
+            "requires": "1.7.3"
+          }
+        }
+      ]
+    }
+  }
+}
