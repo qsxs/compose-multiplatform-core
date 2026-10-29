@@ -40,4 +40,10 @@ done
 
 [producer 40902885173/1](https://github.com/qsxs/cpf-port-tooling/actions/runs/40902885173/attempts/1) 使用 source commit `a29ad241d272630768a2d44c05964ee241c62e09`，在 `Metadata` 的 core 阶段退出 1：`commonizeNativeDistribution` 的 `kotlinKlibCommonizerClasspath` 未解析到 `org.jetbrains.kotlin:kotlin-klib-commonizer-embeddable:2.4.20-0.1.0-08`，日志显示只搜索了 Maven Central。该固定版本的 CPF develop POM 已只读核对存在；旧 CPF 仓 content 过滤未包含此宿主工具坐标。
 
-本次在两个 CPF 仓增加锁定工具清单中九个此前缺失的 Kotlin `.08` 宿主工具精确版本路由；同版 stdlib、tooling-core 和 build-tools-api 原已由业务 pins 路由，公共旧版 host 传递依赖继续使用 Maven Central。路由过滤不强制选择依赖版本，也不改变业务 pins。本修改尚未经过新的云端 producer 验证，不预报后续构建、发布或运行结果。
+本次在两个 CPF 仓增加锁定工具清单中九个此前缺失的 Kotlin `.08` 宿主工具精确版本路由；同版 stdlib、tooling-core 和 build-tools-api 原已由业务 pins 路由，公共旧版 host 传递依赖继续使用 Maven Central。路由过滤不强制选择依赖版本，也不改变业务 pins。本修改尚未通过完整云端 producer 验证，不预报后续构建、发布或运行结果。
+
+## 第二轮云端 producer 失败记录
+
+[producer 40906194563/1](https://github.com/qsxs/cpf-port-tooling/actions/runs/40906194563/attempts/1) 使用 source commit `c43f6ec33c3c562691993b0c1e34834643a6fa58`，已经过 core 的 `commonizeNativeDistribution`，随后在 `compileCommonMainKotlinMetadata` 退出 1：`kotlinCompilerPluginClasspathMetadataCommonMain` 不能解析 `org.jetbrains.kotlin:kotlin-compose-compiler-plugin-embeddable:2.4.20-0.1.0-08`；日志显示只搜索了 Maven Central，CPF 仓过滤未包含该插件。该固定版本的 CPF develop POM 已只读核对存在，摘要与固定工具提交中的 `compiler-plugin-toolchain.json` 一致。
+
+本次仅将该 Compose 编译插件加入两个 CPF 仓既有的宿主工具精确 `.08` 版本过滤，不修改原有九项、业务 pins 或 SDK。该插件清单位于固定工具提交 `d0cff88fd1ea2e4f08bb4409f1c802cca0c7f285`；它不在当前 20 项 tooling-lock 文件清单中。本修改尚未经过新的云端 producer 验证，不预报后续构建、发布或运行结果。

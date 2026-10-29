@@ -15,10 +15,11 @@ pluginManagement {
 val pins = JsonSlurper().parse(file("dependency-pins.json")) as Map<*, *>
 val metadataPins = JsonSlurper().parse(file("metadata-pins.json")) as Map<*, *>
 
-// 宿主工具坐标来自锁定的 commonizer、metadata 和 Native compiler 工具清单。
+// 宿主工具坐标来自固定的 commonizer、metadata、Native compiler 和 Compose compiler 插件工具清单。
 val hostToolModules = listOf(
     "kotlin-klib-commonizer-embeddable",
     "kotlin-compiler-embeddable",
+    "kotlin-compose-compiler-plugin-embeddable",
     "kotlin-script-runtime",
     "kotlin-daemon-embeddable",
     "kotlin-build-tools-compat",
